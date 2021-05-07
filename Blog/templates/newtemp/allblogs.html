@@ -1,0 +1,78 @@
+{% extends 'newtemp/base.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="{% static 'img/core-img/breadcrumb-line.png' %}" alt="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">All Blogs</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Blog Content Area Start ##### -->
+    <section class="blog-content-area section-padding-0-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Blog Posts Area -->
+                <div class="col-12 col-lg-8">
+                    <div class="blog-posts-area">
+
+                        <!-- Featured Post Area -->
+                        <div class="featured-posts">
+                            <a href="{% url 'blog' latest_blog.id %}"><img src="{{ latest_blog.image.url }}" alt=""></a>
+                            <!-- Featured Post Content -->
+                            <div class="featured-post-content">
+                                <p>{{ latest_blog.date }}</p>
+                                <a href="{% url 'blog' latest_blog.id %}" class="post-title">
+                                    <h2>{{ latest_blog.title }}</h2>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Single Blog Post -->
+                        <div class="single-blog-post d-flex flex-wrap mt-50">
+                            <!-- Thumbnail -->
+                            {% for i in allblogs %}
+                            <div class="post-thumbnail mb-50">
+                                <a href="{% url 'blog' i.id %}"><img src="{{ i.image.url }}" alt=""></a>
+                            </div>
+                            <!-- Content -->
+                            <div class="post-content mb-50">
+                                <p class="post-date">{{ i.date }}</p>
+                                <a href="{% url 'blog' i.id %}" class="post-title">
+                                    <h4>{{ i.title }}</h4>
+                                </a>
+                                <div class="post-meta">
+                                    <a href="{% url 'blog' i.id %}"><span>by</span> {{ i.usr.first_name }}</a>
+                                </div>
+                                <p class="post-excerpt">{{ i.desc }}</p>
+                                <a href="{% url 'blog' i.id %}" class="read-more-btn">Continue Reading <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                            <!-- Post Curve Line -->
+                            <img class="post-curve-line" src="{% static 'img/core-img/post-curve-line.png' %}" alt="">
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- Pager -->
+                    <ol class="foode-pager mt-50">
+                        <li><a href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Newer</a></li>
+                        <li><a href="#">Older <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Blog Content Area End ##### -->
+
+   {% endblock %}

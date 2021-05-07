@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h1> Details of {{student.name}}</h1>
+    {% for i in filterdata %}
+    <h3> {{i.name}}</h3>
+    {% endfor %}
+    <a href="{% url 'Home' %}"><button>ALL STUDENTS</button></a>
+    <a href="{% url 'add' 3 4 %}"><button style="color: red; background-color: black;">
+        ADDITION</button></a>
+</center>
+</body>
+</html>

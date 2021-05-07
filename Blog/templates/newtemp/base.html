@@ -1,0 +1,175 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Awesome Blog By Sumedha</title>
+
+    <!-- Favicon -->
+<!--    <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">-->
+
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body>
+    <!-- ##### Preloader ##### -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="circle-preloader">
+            <img src="{% static 'img/core-img/logo.png' %}" alt="">
+            <div class="foode-preloader">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+
+        <!-- Top Header Area -->
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Search Form -->
+
+                            <div class="search-form">
+                                <form action="#" method="get">
+                                    <input type="search" name="search" class="form-control" placeholder="Search and hit enter...">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- Social Button -->
+                            <div class="top-social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Area -->
+        <div class="logo-area text-center">
+            <div class="container">
+
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="foode-main-menu">
+             <h4 align="center"> Welcome {{ request.user.username }}</h4>
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar" id="foodeNav">
+
+                        <!-- Nav brand -->
+                        <a href="{% url 'home' %}" class="nav-brand"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                     <li><a href="{% url 'allblog' %}">All Blogs</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li><a href="{% url 'addblog' %}">Create Blog </a> </li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                    {% else %}
+                                     <li><a href="{% url 'signup' %}">Signup</a></li>
+                                    <li><a href="{% url 'newlogin' %}">Login</a></li>
+                                    {% endif %}
+                                </ul>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+<!-- ##### Header Area End ##### -->
+
+
+{% block body %}
+
+{% endblock %}
+
+
+ <!-- ##### Instagram Area Start ##### -->
+    <div class="follow-us-instagram">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Follow Me On <i class="fa fa-hand-o-down" aria-hidden="true"></i></h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Instagram Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-6">
+
+                    <!-- Footer Social Info -->
+                    <div class="footer-social-info d-flex align-items-center justify-content-between">
+                        <a href="https://www.linkedin.com/in/sumedha-agasimani-5811b7192/" style="text-align: center"><i class="fa fa-linkedin"></i><span>linkedin</span></a>
+                    </div>
+                    <!-- Footer Curve Line -->
+                    <img class="footer-curve" src="{% static 'img/core-img/foo-curve.png' %}" alt="">
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
+    <!-- ##### Footer Area Start ##### -->
+
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/plugins/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

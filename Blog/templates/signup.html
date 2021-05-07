@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h1>Create New Account</h1>
+{% if error %}
+<p style="color:red;">User Already Exists</p>
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <input type="text" placeholder="Enter FullName" name="user">
+        <br><br>
+        <input type="email" placeholder="Email" name="email">
+        <br><br>
+        <input type="number" placeholder="Mobile Number" name="mobile">
+         <br><br>
+        <input type="file"  name="img">
+         <br><br>
+        <input type="text" placeholder="Username" name="username">
+         <br><br>
+        <input type="password" placeholder="Password" name="pwd">
+        <br><br>
+
+        <input type="submit" value="Signup">
+</form>
+    </center>
+</body>
+</html>

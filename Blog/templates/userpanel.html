@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <img src="{{ userdata.image.url }}" style="width:100px ; height:100px;">
+    <br><br>
+<a href="{% url 'logout' %}"><button>Logout</button></a>
+<h1>Add Blog</h1>
+    <h3>Welcome {{request.user.first_name}} </h3>
+   <a href="{% url 'add_blog' %}"><button>ADD BlOG</button></a>
+    <h2>List of Blogs</h2>
+    {% for i in userblog %}
+    <h3> <a href="{% url 'blog' i.id %}">{{i.title}}</a> </h3>
+    {% endfor %}
+    </center>
+</body>
+</html>

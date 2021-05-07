@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>{{request.user.first_name}}</h1>
+    {% if blogdata.image %}
+    <img src="{{blogdata.image.url}}" height="100px" width="100px">
+    <br><br>
+    {% else %}
+    <h1>No Image</h1>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <select name="cat"  >
+          <option>SELECT CATEGORY</option>
+            {% for i in allcat %}
+            {% if i.id == blogdata.cat.id %}
+            <option value="{{i.id}}" selected>{{i.name}}</option>
+            {% else %}
+            <option value="{{i.id}}" >{{i.name}}</option>
+            {% endif %}
+            {% endfor %}
+
+        </select>
+        <br><br>
+        <input type="text" placeholder="Title" name="title" value="{{blogdata.title}}">
+        <br><br>
+        <textarea  placeholder=" Short Description" name="short" style="height:100px">{{blogdata.desc}}</textarea>
+        <br><br>
+        <textarea  name="long" style="height:100px">{{blogdata.long_desc}}</textarea>
+        <br><br>
+            <input type="file" placeholder="image" name="img">
+        <br><br>
+        <input type="submit" value="Edit Details" >
+
+    </form>
+</center>
+</body>
+</html>
+

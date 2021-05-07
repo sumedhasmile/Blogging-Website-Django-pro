@@ -1,0 +1,47 @@
+{% extends 'newtemp/base.html' %}
+{% load static %}
+{% block body %}
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="{% static 'img/core-img/breadcrumb-line.png" alt="">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">About</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <div class="about-us-area section-padding-0-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="section-heading">
+                        <h2>About Me</h2>
+                        <p> Enthusiastic Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="about-content">
+                        <img src="{% static 'img/profile.jpeg' %}" style=" width:75% height:10%" alt="">
+                        <p>Studying  Computer Science at KLE Dr M.S.Sheshgiri Engineering College Belagavi.</p>
+                        <p>Just a demo project on Django Framework on Blogging Website</p><blockquote>
+                            <h5>“It’s harder to read code than to write it.” </h5>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   {% endblock %}

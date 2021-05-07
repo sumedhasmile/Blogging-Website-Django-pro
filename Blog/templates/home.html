@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    button{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    }
+    body{
+    background-color:#a6e1ed;
+    }
+    div{
+    background-color:white;
+    width: 700px;
+    height: 400px;
+    border: solid 4px ;
+    }
+    h3{
+     font-style: italic;
+  
+    }
+</style>
+<body>
+<center>
+    <div>
+<a href="{% url 'login' %}"><button>Login</button></a>
+<a href="{% url 'signup' %}"><button>Signup</button></a>
+<h1>All Category</h1>
+{% for i in allcat %}
+<h3 ><a href="{% url 'cat_detail' i.id %}">{{i.name}}</a></h3>
+{% endfor %}
+    </div>
+    </center>
+</body>
+</html>
