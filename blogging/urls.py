@@ -21,25 +21,7 @@ from django.conf import settings
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('home/', HomePage, name='Home'),
-                  path('second/', SecondPage),
-                  path('index/', HtmlPage),
-                  path('students/', AllStudent, name='alls'),
-                  path('single/', getData),
-                  path('details/<int:sid>/', StudentDetail, name='sdetails'),
-                  path('addition/<int:num1>/<int:num2>/', Add, name='add'),
-                  path('form/', HtmlForm, name='form'),
-                  path('add_category/', AddCategory, name='add_cat'),
-                  path('all_category/', Adminpanel, name='all_cat'),
-                  path('add_blog_old/', AddBlog, name='add_blog'),
-                  path('loginid/', Login, name='login'),
-                  path('home/', home, name='home'),
-                  path('userpanel/', userpanel, name='userpanel'),
-                  path('signupid/', Signup, name='signupid'),
-                  path('cat_detailold/<int:cid>/', Category_detail, name='cat_detailold'),
-
-                  path('edit_blog1/<int:bid>/', Edit_blog, name='edit_blog_old'),
-                  path('delete_blog/<int:bid>/', deleteData, name='delete'),
+                  
                   #######New Blog #######
                   path('', newhome, name='home'),
                   path('single_post/<int:bid>/', newsingle_post, name='single'),

@@ -1,14 +1,18 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import *
+from datetime import date
 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 
+def Logout(request):
+    logout(request)
+    return redirect('home')
 
 
-
-######New Blog ######
 def newhome(request):
     allblog = BlogModel.objects.all()
 
